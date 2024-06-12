@@ -9,6 +9,7 @@ const recordsRoute = require("./routes/Records.route");
 const doctorsRoute = require("./routes/Doctor.route");
 const patientRoute = require("./routes/Patient.route");
 const appointmentRoute = require("./routes/Appointments.route");
+const sessionRoute = require("./routes/Sessions.route");
 const models = require("./routes/model");
 const cors = require("cors");
 
@@ -27,6 +28,7 @@ app.use("/api/appointments", appointmentRoute);
 app.use("/api/doctors", doctorsRoute);
 app.use("/api/patients", patientRoute);
 app.use("/api/models", models);
+app.use("/api/sessions", sessionRoute);
 
 app.listen(process.env.PORT || 5000, () => {
   console.log("Backend server is running!");
