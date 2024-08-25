@@ -2,6 +2,7 @@ const Session = require("../models/Session");
 
 class SessionService {
   async createSession(sessionData) {
+    console.log(sessionData)
     const newSession = new Session(sessionData);
     try {
       const savedSession = await newSession.save();

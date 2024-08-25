@@ -31,11 +31,11 @@ const upload = multer({
 
 router.post("/", blogPostController.createBlogPost);
 router.patch("/:id", blogPostController.updateBlogPost);
-router.post(
-  "/:id/uploadImage",
-  upload.single("blogPostImage"),
-  blogPostController.uploadBlogPostImage
-);
+// router.post(
+//   "/:id/uploadImage",
+//   upload.single("blogPostImage"),
+//   blogPostController.uploadBlogPostImage
+// );
 router.delete("/:id", blogPostController.deleteBlogPost);
 router.get("/find/:id", blogPostController.getBlogPostById);
 router.get("/", blogPostController.getAllBlogPosts);
