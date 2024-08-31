@@ -9,6 +9,7 @@ const BlogPostSchema = new mongoose.Schema(
     comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }],
     published: { type: Boolean, default: false },
     publishedAt: { type: Date },
+    image: { type: String, default: 'https://cdn-icons-png.flaticon.com/512/326/326020.png' },
   },
   { timestamps: true }
 );
