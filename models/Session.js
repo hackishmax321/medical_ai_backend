@@ -10,7 +10,8 @@ const SessionSchema = new mongoose.Schema(
     accepted: { type: Boolean, default: false },
     link: { type: String, default: '' },
     details: { type: String, default: '' },
-    keywords: { type: [String], default: [] }
+    keywords: { type: [String], default: [] },
+    documents: { type: [Object], default: [] },
   },
   { timestamps: true }
 );

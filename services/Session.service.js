@@ -46,30 +46,31 @@ class SessionService {
 
   async getAllSessions() {
     try {
-      const sessions = await Session.find();
+      const sessions = await Session.find().sort({ createdAt: -1 });
       return sessions;
     } catch (err) {
       throw err;
     }
   }
-
+  
   async getSessionsByDoctor(doctor) {
     try {
-      const sessions = await Session.find({ doctor });
+      const sessions = await Session.find({ doctor }).sort({ createdAt: -1 });
       return sessions;
     } catch (err) {
       throw err;
     }
   }
-
+  
   async getSessionsByPatient(patient) {
     try {
-      const sessions = await Session.find({ patient });
+      const sessions = await Session.find({ patient }).sort({ createdAt: -1 });
       return sessions;
     } catch (err) {
       throw err;
     }
   }
+  
 }
 
 module.exports = new SessionService();

@@ -45,9 +45,7 @@ class BlogPostService {
 
   async getAllBlogPosts(query) {
     try {
-      let blogPosts;
-      blogPosts = await BlogPost.find();
-
+      const blogPosts = await BlogPost.find().sort({ createdAt: -1 });
       return blogPosts;
     } catch (err) {
       throw err;
