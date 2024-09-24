@@ -9,8 +9,10 @@ const UserSchema = new mongoose.Schema(
     email: { type: String, required: true, unique: true },
     contact: { type: String },
     keywords: { type: [String], default: []},
+    assigned: { type: String, default: ''},
     password: { type: String, required: true },
     avatar: { type: String, default: 'https://cdn-icons-png.flaticon.com/512/4715/4715330.png'},
+    status: { type: String, default: 'initial' },
     approved: { type: Boolean, default: true },
   },
   { timestamps: true }
