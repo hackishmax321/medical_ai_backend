@@ -9,5 +9,6 @@ router.get("/find/:id", gameController.getGameById);
 router.get("/", gameController.getAllGames);
 router.get("/user/:userId", gameController.getGamesByUser);
 router.get("/doctor/:doctorId", gameController.getGamesByDoctor);
+router.get("/latest/user/:userId", gameController.getLatestGameByUser);
 
 module.exports = router;

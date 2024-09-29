@@ -65,6 +65,19 @@ class GameController {
       res.status(500).json(err);
     }
   }
+
+  async getLatestGameByUser(req, res) {
+    try {
+      const latestGame = await gameService.getLatestGameByUser(req.params.userId);
+      if (!latestGame) {
+        return res.status(404).json({ message: "No games found for this user" });
+      }
+      res.status(200).json(latestGame);
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  }
 }
 
 module.exports = new GameController();

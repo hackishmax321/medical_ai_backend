@@ -67,6 +67,17 @@ class GameService {
       throw err;
     }
   }
+
+  async getLatestGameByUser(userId) {
+    try {
+      const latestGame = await Game.findOne({ user: userId })
+        .sort({ createdAt: -1 })
+        .limit(1); // Ensure only one document is fetched
+      return latestGame;
+    } catch (err) {
+      throw err;
+    }
+  }
 }
 
 module.exports = new GameService();
