@@ -15,6 +15,7 @@ const storyRoute = require("./routes/Story.route");
 const gameRoute = require("./routes/Game.route");
 const messagesRoute = require("./routes/Messages.rote");
 const docRoute = require("./routes/Documents.route");
+const chatRoute = require("./routes/UserChatSessions.route");
 const models = require("./routes/model");
 const cors = require("cors");
 
@@ -39,6 +40,7 @@ app.use("/api/stories", storyRoute);
 app.use("/api/games", gameRoute);
 app.use("/api/messages", messagesRoute);
 app.use("/api/documents", docRoute);
+app.use("/api/chats", chatRoute);
 
 app.listen(process.env.PORT || 5000, () => {
   console.log("Backend server is running!");
