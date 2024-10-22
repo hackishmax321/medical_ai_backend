@@ -1,4 +1,5 @@
 const UserChatSession = require("../models/UserChatSesion");
+const patientService = require("./Patient.service");
 
 class UserChatSessionService {
   // Create a new user chat session
@@ -40,6 +41,22 @@ class UserChatSessionService {
   async getSessionsByName(name) {
     try {
       const sessions = await UserChatSession.find({ name });
+      return sessions;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  async getSessionsByNameDoctor(name, doctor) {
+    try {
+      // Check if the patient exists and is assigned to the correct doctor
+      const patient = await patientService.getPatientById(name); // Assume 'name' is the patient ID
+      if (!patient || patient.assigned !== doctor) {
+        throw new Error('Patient not found or not assigned to this doctor');
+      }
+
+      // Fetch chat sessions for the patient
+      const sessions = await UserChatSession.find({ name: patient.username }); // Find by patient's username
       return sessions;
     } catch (err) {
       throw err;
