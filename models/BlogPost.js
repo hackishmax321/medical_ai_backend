@@ -6,7 +6,7 @@ const BlogPostSchema = new mongoose.Schema(
     content: { type: String, required: true },
     author: { type: String, ref: 'User', required: true },
     tags: { type: [String], default: [] },
-    comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }],
+    comments: { type: [Object], default: [] },
     published: { type: Boolean, default: false },
     publishedAt: { type: Date },
     image: { type: String, default: 'https://cdn-icons-png.flaticon.com/512/326/326020.png' },
